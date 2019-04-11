@@ -9,9 +9,10 @@ import {
   SimpleChanges,
   OnDestroy
 } from "@angular/core";
-import "chart.js";
 
-declare var window: any;
+import * as Chart from "chart.js";
+import "../chart-plugin";
+
 @Component({
   selector: 'chart-js',
   templateUrl: './chart-js.component.html',
@@ -35,7 +36,7 @@ export class ChartJsComponent implements OnInit, AfterViewInit, OnChanges, OnDes
   }
 
   render() {
-    this.chart = new window.Chart(
+    this.chart = new Chart(
       this.canvas.nativeElement.getContext("2d"),
       this.config
     );
